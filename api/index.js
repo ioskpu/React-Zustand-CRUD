@@ -9,7 +9,7 @@ const propietariosRoutes = require('./routes/propietariosRoutes')
 
 
 const app = express();
-const port = 5000;
+
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -26,6 +26,8 @@ moongoose.connect('mongodb://localhost:27017/zuztand', {
 app.use('/api', marcasRoutes);
 app.use('/api', tiposRoutes);
 app.use('/api', propietariosRoutes);
+
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
     console.log(`Servidor Express escuchando en el puerto ${port}`)
