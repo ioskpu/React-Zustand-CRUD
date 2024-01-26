@@ -1,29 +1,25 @@
 import logo from './logo.svg';
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import MarcaList from './components/MarcaList';
+import MarcaForm from './components/MarcaForm';
+import MarcaDetail from './components/MarcaDetail';
 
 function App() {
-  const [marcas, setMarcas] = useState([]);
-
-  useEffect(() => {
-    axios.get('http://localhost:5000/api/marcas')
-    .then (response => setMarcas(response.data))
-    .catch(error => console.error('Error al obtener las marcas', error))
-  }, []);
-
+  
   return (
-    <div className="App">
-      <h1>CRUD de Marcas de Vehículos</h1>
-      {/* componentes */}
-      <ul>
-        {marcas.map(marca => (
-          <li key={marca._id}>
-            {marca.nombre}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <Router>
+      <div className="App">
+        <h1>CRUD de Marcas de Vehículos</h1>
+        {/* componentes */}
+        <Routes>
+          <Route path="/marcas" exact component={MarcaList} />
+          <Route path="/marcas/nueva" component={MarcaForm} />
+          <Route path="/marcas/:id" exact component={MarcaDetail} />
+          <Route path="/marcas/:id/editar" component={MarcaForm} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
