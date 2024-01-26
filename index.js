@@ -2,6 +2,8 @@ const express = require('express');
 const moongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const marcasRoutes = require('./routes/marcasRoutes');
+const tiposRoutes = require('./routes/tiposRoutes');
 
 
 const app = express();
@@ -19,7 +21,8 @@ moongoose.connect('mongodb://localhost:27017/zuztand', {
 .catch(error => console.error('error al conectar con Mongodb', error));
 
 //importar rutas
-
+app.use('/api', marcasRoutes);
+app.use('/api', tiposRoutes);z
 
 app.listen(port, () => {
     console.log(`Servidor Express escuchando en el puerto ${port}`)
