@@ -10,6 +10,8 @@ const tipoVehiculoSchema = new mongoose.Schema({
     },
 })
 
+tipoVehiculoSchema.add({ _id: mongoose.Types.ObjectId });
+
 const TipoVehiculo = mongoose.model('TiposVehiculos', tipoVehiculoSchema);
 
 module.exports = TipoVehiculo;
