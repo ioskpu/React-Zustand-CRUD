@@ -40,7 +40,7 @@ exports.getTipoVehiculoById = async (req, res) => {
 };
 
 
-//conttrolador para actualizar un tipo de vehiculo por su ID
+//controlador para actualizar un tipo de vehiculo por su ID
 
 exports.updateTipoVehiculoById = async (req, res) => {
     try {

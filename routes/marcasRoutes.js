@@ -14,7 +14,7 @@ router.get('/marcas', marcasController.getAllMarcas);
 router.get('/marcas/:id', marcasController.getMarcaById);
 
 //actualizar una marca
-router.put('/marcas/:id', marcasController.actualizarMarca);
+router.put('/marcas/:id', marcasController.updateMarcaById);
 
 //eliminar una marca
 router.delete('/marcas/:id', marcasController.deleteMarcaById);

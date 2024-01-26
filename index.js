@@ -22,7 +22,7 @@ moongoose.connect('mongodb://localhost:27017/zuztand', {
 
 //importar rutas
 app.use('/api', marcasRoutes);
-app.use('/api', tiposRoutes);z
+app.use('/api', tiposRoutes);
 
 app.listen(port, () => {
     console.log(`Servidor Express escuchando en el puerto ${port}`)
